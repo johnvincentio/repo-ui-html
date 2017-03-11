@@ -1,0 +1,49 @@
+body {
+	text-align: center;
+	border-style: dashed;
+	height: 600px;
+}
+
+#divja {
+	background-color: red;
+	width: 80%;
+	height: 80%;
+	position: absolute;
+	left: 50%;
+	margin-left: -40%;
+
+	top: 50%;
+	margin-top: -20%;
+}
+
+#div2 {
+	background-color: red;
+
+	position: absolute;
+
+	width: 80%;
+	height: 300px;
+
+	left: 50%;
+	top: 50%;
+
+	margin-left: -40%;
+	margin-top: -150px;
+}
+
+div {
+	background-color: red;
+
+	position: absolute;
+
+	left: 3%;
+	top: 3%;
+	right: 3%;
+	bottom: 3%;
+
+	margin: 20%;
+
+	min-width: 200px;
+	min-height: 200px;
+}
+

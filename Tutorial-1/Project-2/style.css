@@ -1,0 +1,45 @@
+#wrapper {
+	width: 1024px;
+	height: 768px;
+	background-color: #00CCFF;
+}
+
+#banner {
+	width: 1024px;
+	height: 220px;
+	background-color: #FF6633;
+}
+
+#menuTop {
+	width: 1024px;
+	height: 35px;
+	background-color: #CCFFFF;
+}
+
+#columnLeft {
+	width: 220px;
+	height: 438px;
+	background-color: #CCCC00;
+	float: left;
+}
+
+#columnRight {
+	width: 220px;
+	height: 438px;
+	background-color: #009900;
+	float: right;
+}
+
+#content {
+	width: 584px;
+	height: 438px;
+	background-color: #66FFFF;
+	margin-left: 220px;
+}
+
+#footer {
+	width: 1024px;
+	height: 75px;
+	background-color: #FF99FF;
+}
+

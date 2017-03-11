@@ -1,0 +1,48 @@
+body {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#container {
+	width: 800px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 11px;
+	margin-bottom: 21px;
+	outline: #00FF00 dotted thick;
+}
+
+#header {
+	height: 150px;
+	background-color: #CC00FF;
+}
+/*
+#menu {
+	height: 60px;
+	background-color: #FFCCFF;
+}
+*/
+#sideBar {
+	width: 150px;
+	height: 400px;
+	background-color: #00FF00;
+	float: left;
+}
+
+#mainBody {
+	width: 650px;
+	height: 400px;
+	background-color: #FFCC00;
+	float: right;
+}
+
+#footer {
+	height: 50px;
+	background-color: #0000FF;
+	clear: both;
+}	
+
+			

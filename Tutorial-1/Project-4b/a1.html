@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>display properties; see https://www.youtube.com/watch?v=G8sLEp20Zf4</title>
+		<style>
+span > b {
+	background: grey;
+	border-style: solid;
+	border-width: 5px;
+	border-color: navy;
+	padding: 10px;		/* transparent */
+	margin: 15px;		/* transparent */
+	display: block;
+}
+
+div {
+	background: lightgrey;
+	border-style: dashed;
+	border-width: 5px;
+	margin: 15px;
+	padding: 15px;
+	width: 200px;
+	height: 200px;
+}
+#d1 {
+	background: yellow;
+	float: left;
+}
+#d2 {
+	background: olive;
+	float: right;
+}
+#d3 {
+	background: red;
+	width: 500px;
+	height: 5px;
+	clear: both;
+}
+span > em {
+	background: darkgreen;
+	margin: 15px;
+	padding: 15px;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+ul li {
+	background: pink;
+	display: inline-block;
+}
+		</style>
+	</head>
+	<body>
+
+		<span>This is a <b>small</b> piece of text, to show the behaviour of the css display property.
+			There are mainly four important values for display.
+		</span>
+		<ul>
+			<li>display: inline</li>
+			<li>display: block</li>
+			<li>display: inline-block</li>
+			<li>display: none</li>
+		</ul>	
+
+		<div id="d1">
+			<span>In HTML elements have mostly a predefined display value. For example: the DIV container is a 
+				block element, as well the UL element or the text block element P or the heading H1.
+				That means they are defining a new start and end of a line, when displayed in a browser
+			</span>
+		</div>
+		<div id="d2">
+			<span>
+				Inline elements are SPAN, A, B or IMG. They do not start a new line. With css you
+				can change this behaviour.
+			</span>
+		</div>
+
+		<div id="d3"></div>
+
+		<span>
+			Here you can <em>see</em> <em>some</em> <em>fun</em> width inline block elements. 
+			They are behaving like inline elements, just their heights and width are respected by other elements
+		</span>
+
+	</body>
+</html>
