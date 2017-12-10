@@ -8,39 +8,52 @@
 </head>
 <body>
 
-	<div class="drop-to"
+	<div class="gap"
 		data-drop-id="10"
+		ondragenter="dragEnterHandler(event)"
+		ondragover="dragoverHandler(event);"
+		ondragleave="dragLeaveHandler(event)"
 		ondrop="dropHandler(event);"
-		ondragover="dragoverHandler(event);">
-			Droppable
+	>
+			Dropable
 	</div>
 
-	<div class="drag-from"
-		draggable="true" data-id="1" 
+	<div class="task"
+		draggable="true" data_id="1" 
+		ondrag="dragHandler(event)"
 		ondragstart="dragstartHandler(event);" 
-		ondragend="dragendHandler(event);">
-			Goal1
+		ondragend="dragendHandler(event);"
+		>
+			Goal1-a
 	</div>
 
-	<div class="drop-to"
+	<div class="gap"
 		data-drop-id="20"
+		ondragenter="dragEnterHandler(event)"
+		ondragover="dragoverHandler(event);"
+		ondragleave="dragLeaveHandler(event)"
 		ondrop="dropHandler(event);"
-		ondragover="dragoverHandler(event);">
-			Droppable
+	>
+			Dropable
 	</div>
 
-	<div class="drag-from"
-		draggable="true" data-id="2" 
+	<div class="task"
+		draggable="true" data_id="2"
+		ondrag="dragHandler(event)"
 		ondragstart="dragstartHandler(event);" 
-		ondragend="dragendHandler(event);">
+		ondragend="dragendHandler(event);"
+		>
 			Goal2
 	</div>
 
-	<div class="drop-to"
+	<div class="gap"
 		data-drop-id="30"
+		ondragenter="dragEnterHandler(event)"
+		ondragover="dragoverHandler(event);"
+		ondragleave="dragLeaveHandler(event)"
 		ondrop="dropHandler(event);"
-		ondragover="dragoverHandler(event);">
-			Droppable
+	>
+			Dropable
 	</div>
 
 
