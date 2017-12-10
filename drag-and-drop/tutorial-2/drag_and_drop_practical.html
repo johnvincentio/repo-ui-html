@@ -1,0 +1,188 @@
+<!--
+- Copyright (c) 2013 Samsung Electronics Co., Ltd.   
+- All rights reserved.   
+-   
+- Redistribution and use in source and binary forms, with or without   
+- modification, are permitted provided that the following conditions are   
+- met:   
+-   
+-     * Redistributions of source code must retain the above copyright   
+-        notice, this list of conditions and the following disclaimer.  
+-     * Redistributions in binary form must reproduce the above  
+-        copyright notice, this list of conditions and the following disclaimer  
+-        in the documentation and/or other materials provided with the  
+-        distribution.  
+-     * Neither the name of Google Inc. nor the names of its  
+-       contributors may be used to endorse or promote products derived from  
+-       this software without specific prior written permission.  
+-  
+- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS  
+- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT  
+- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR  
+- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  
+- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,  
+- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT  
+- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,  
+- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY  
+- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT  
+- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE  
+- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+        body{
+            font-size: 12px;
+        }
+
+        .example_body *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .holder{
+            margin: 20px auto;
+            width: 300px;
+            border: 3px dashed #33ccff;
+        }
+
+        .txt{
+            padding: 10px 0;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        ul, li{
+            list-style: none;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        #puzzle{
+            width: 300px;
+            border-top: 3px dashed #33ccff;
+        }
+
+        #puzzle:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #puzzle .puzzle-piece{
+            float: left;
+        }
+
+        #puzzle .puzzle-piece.start{
+            background: #eaf2fe;
+        }
+
+        #puzzle .puzzle-piece.over{
+            background: #d5d5d5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and drop tutorial</h1>
+    <div class="example_body">
+        <div>
+            Drag state : <span id="log"></span>
+        </div>
+        <div class="holder">
+            <div>
+                <img src="images/logo.png">
+                <p class="txt">Complete the puzzle to see a picture</p>
+            </div>
+            <ul id="puzzle">
+                <li class="puzzle-piece" draggable="true">
+                    <img src="images/puzz_06.png">
+                </li>
+                <li class="puzzle-piece" draggable="true">
+                    <img src="images/puzz_02.png">
+                </li>
+                <li class="puzzle-piece" draggable="true">
+                    <img src="images/puzz_04.png">
+                </li>
+                <li class="puzzle-piece" draggable="true">
+                    <img src="images/puzz_05.png">
+                </li>
+                <li class="puzzle-piece" draggable="true">
+                    <img src="images/puzz_01.png">
+                </li>
+                <li class="puzzle-piece" draggable="true">
+                    <img src="images/puzz_03.png">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var cols = document.querySelectorAll('#puzzle .puzzle-piece');
+        var colsLength = cols.length;
+        // data 교환을 위한 객체
+        var dragElem = null;
+        var log = document.getElementById('log');
+        // 키 비교를 위한 배열
+        var puzzleKey = ["01", "02", "03", "04", "05", "06"];
+        var puzzleArray = [];
+
+        function puzzleCheck() {
+            //Initialize user key
+            puzzleArray = [];
+            //Insert the key in the array
+            for (var i = 0; i < colsLength; i++) {
+                puzzleArray.push(cols[i].children[0].getAttribute('src').substring(12, 14));
+            };
+            originKey = puzzleKey.join();
+            userKey = puzzleArray.join();
+
+            if (originKey === userKey) {
+                alert("Success !");
+            };
+        };
+        function dragStartHandler(e) {
+            //Set data
+            dragElem = this;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.innerHTML);
+            this.classList.add('over');
+            for (var i = 0; i < colsLength; i++) {
+                cols[i].classList.add('start');
+            };
+        };
+        function dragOverHandler(e) {
+            e.preventDefault();
+            this.classList.add('over');
+            e.dataTransfer.dropEffect = 'move';
+        };
+
+        function dragLeaveHandler(e) {
+            this.classList.remove('over');
+        };
+
+        function dragDropHandler(e) {
+            e.preventDefault();
+            //Get data
+            dragElem.innerHTML = this.innerHTML;
+            this.innerHTML = e.dataTransfer.getData('text/html');
+            for (var i = 0; i < colsLength; i++) {
+                cols[i].className = "puzzle-piece";
+            };
+            //Check key
+            puzzleCheck();
+        };
+        // drag 요소에 event lister 설정
+        for (var i = 0; i < colsLength; i++) {
+            cols[i].addEventListener('dragstart', dragStartHandler, false);
+            cols[i].addEventListener('dragover', dragOverHandler, false);
+            cols[i].addEventListener('dragleave', dragLeaveHandler, false);
+            cols[i].addEventListener('drop', dragDropHandler, false);
+        };
+    </script>
+</body>
+</html>

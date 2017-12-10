@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>Drag and Drop</title>
+<link rel="stylesheet" href="a.css">
+<script src="a.js"></script>
+</head>
+<body>
+
+	<div draggable="true" id="src_copy" 
+		ondragstart="dragstart_handler(event);" 
+		ondragend="dragend_handler(event);">
+			Select this element and drag to the <strong>Copy Drop Zone</strong>.
+	</div>
+
+	<div id="dest_copy" 
+		ondrop="drop_handler(event);"
+		ondragover="dragover_handler(event);">
+		<strong>Copy Drop Zone</strong>
+	</div>
+
+	<div draggable="true" id="src_move" 
+		ondragstart="dragstart_handler(event);" 
+		ondragend="dragend_handler(event);">
+			Select this element and drag to the <strong>Move Drop Zone</strong>.
+	</div>
+ <div id="dest_move" 
+	 ondrop="drop_handler(event);" 
+	 ondragover="dragover_handler(event);">
+	 <strong>Move Drop Zone</strong>
+	</div>
+</body>
+</html>

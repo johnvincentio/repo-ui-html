@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>Drag and Drop</title>
+<link rel="stylesheet" href="a.css">
+<script src="a.js"></script>
+</head>
+<body>
+
+	<div class="drop-to"
+		data-drop-id="10"
+		ondrop="dropHandler(event);"
+		ondragover="dragoverHandler(event);">
+			Droppable
+	</div>
+
+	<div class="drag-from"
+		draggable="true" data-id="1" 
+		ondragstart="dragstartHandler(event);" 
+		ondragend="dragendHandler(event);">
+			Goal1
+	</div>
+
+	<div class="drop-to"
+		data-drop-id="20"
+		ondrop="dropHandler(event);"
+		ondragover="dragoverHandler(event);">
+			Droppable
+	</div>
+
+	<div class="drag-from"
+		draggable="true" data-id="2" 
+		ondragstart="dragstartHandler(event);" 
+		ondragend="dragendHandler(event);">
+			Goal2
+	</div>
+
+	<div class="drop-to"
+		data-drop-id="30"
+		ondrop="dropHandler(event);"
+		ondragover="dragoverHandler(event);">
+			Droppable
+	</div>
+
+
+
+	<!-- <div draggable="true" id="src_copy" 
+		ondragstart="dragstartHandler(event);" 
+		ondragend="dragendHandler(event);">
+			Select this element and drag to the <strong>Copy Drop Zone</strong>.
+	</div>
+
+	<div id="dest_copy" 
+		ondrop="dropHandler(event);"
+		ondragover="dragoverHandler(event);">
+		<strong>Copy Drop Zone</strong>
+	</div>
+
+	<div draggable="true" id="src_move" 
+		ondragstart="dragstartHandler(event);" 
+		ondragend="dragendHandler(event);">
+			Select this element and drag to the <strong>Move Drop Zone</strong>.
+	</div>
+ <div id="dest_move" 
+	 ondrop="dropHandler(event);" 
+	 ondragover="dragoverHandler(event);">
+	 <strong>Move Drop Zone</strong>
+	</div> -->
+</body>
+</html>

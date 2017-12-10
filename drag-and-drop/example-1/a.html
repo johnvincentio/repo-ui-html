@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>Using Drag and Drop API to copy and move elements</title>
+<link rel="stylesheet" href="a.css">
+<script src="a.js"></script>
+</head>
+<body>
+<h1>Drag and Drop: Copy and Move elements with <code>DataTransfer</code></h1>
+ <div draggable="true" id="src_copy" ondragstart="dragstartHandler(event);" ondragend="dragendHandler(event);">
+     Select this element and drag to the <strong>Copy Drop Zone</strong>.
+ </div>
+ <div id="dest_copy" ondrop="dropHandler(event);" ondragover="dragoverHandler(event);"><strong>Copy Drop Zone</strong></div>
+ <div draggable="true" id="src_move" ondragstart="dragstart_handler(event);" ondragend="dragendHandler(event);">
+     Select this element and drag to the <strong>Move Drop Zone</strong>.
+ </div>
+ <div id="dest_move" ondrop="dropHandler(event);" ondragover="dragoverHandler(event);">
+	 <strong>Move Drop Zone</strong>
+	</div>
+</body>
+</html>

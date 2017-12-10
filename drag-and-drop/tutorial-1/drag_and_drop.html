@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)http://download.tizen.org/misc/examples/w3c_html5/ui/html5_drag_and_drop/drag_and_drop.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+        body{
+            font-size: 12px;
+        }
+
+        .example_body *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        #drag-list{
+            width: 315px;
+            margin: 0 auto;
+        }
+
+        #drag-list:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .drag-row{
+            float: left;
+            display: box;
+            box-align: center;
+            box-pack: center;
+            display: -webkit-box;
+            -webkit-box-align: center;
+            -webkit-box-pack: center;
+            vertical-align: middle;
+            width: 50px;
+            height: 159px;
+            margin: 30px;
+            border: 3px solid #cccccc;
+            border-radius: 6px;
+            font-size: 1.3em;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .drag-row img{
+            vertical-align: top;
+        }
+
+        .drag-row.drag{
+            border-color: red;
+        }
+
+        .drag-row.over{
+            border: 3px dotted #333333;
+        }
+        
+        #id{
+            color: #36c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and drop tutorial</h1>
+    <div class="example_body">
+        <div id="drag-list">
+            <div class="drag-row" draggable="true">1</div>
+            <div class="drag-row" draggable="true">2</div>
+        </div>
+        <div>
+            Drag state : <span id="log">dragEnd</span>
+        </div>
+    </div>
+    <script>
+        var cols = document.querySelectorAll('#drag-list .drag-row');
+        var colsLength = cols.length;
+        var log = document.getElementById('log');
+        function dragStart(e) {
+            log.innerHTML = 'dragStart'
+        };
+        function dragIng(e) {
+            log.innerHTML = 'drag'
+        };
+        function dragOver(e) {
+            e.preventDefault();
+            log.innerHTML = 'dragOver'
+        };
+        function dragEnter(e) {
+            log.innerHTML = 'dragEnter'
+        };
+        function dragLeave(e) {
+            log.innerHTML = 'dragLeave'
+        };
+        function dragDrop(e) {
+            e.stopPropagation();
+            log.innerHTML = 'dragDrop'
+
+        };
+        function dragEnd(e) {
+            log.innerHTML = 'dragEnd'
+        };
+
+        for (var i = 0; i < colsLength; i++) {
+            cols[i].addEventListener('dragstart', dragStart, false);
+            cols[i].addEventListener('drag', dragIng, false);
+            cols[i].addEventListener('dragstart', dragStart, false);
+            cols[i].addEventListener('dragenter', dragEnter, false);
+            cols[i].addEventListener('dragover', dragOver, false);
+            cols[i].addEventListener('dragleave', dragLeave, false);
+            cols[i].addEventListener('drop', dragDrop, false);
+            cols[i].addEventListener('dragend', dragEnd, false);
+        };
+
+    </script>
+
+<div id="viewPortSize" class="top_right" 
+style="display: none; background-color: rgb(68, 68, 68); color: rgb(255, 255, 153); font-size: 12px;">
+</div>
+</body>
+</html>
+
