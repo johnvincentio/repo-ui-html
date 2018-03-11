@@ -5,7 +5,7 @@ function dragstartHandler(ev) {
 	console.log('ondragStart ', ev);
 	ev.currentTarget.style.border = 'dashed'; // Change the source element's background color to signify drag has started
 	ev.dataTransfer.setData('text', ev.target.data_id); 	// Add the id of the drag source element to the drag data payload so it is available when the drop event is fired
-	ev.effectAllowed = 'move';
+	ev.dataTransfer.effectAllowed = 'move';
 }
 
 function dragHandler(ev) {
